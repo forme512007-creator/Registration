@@ -1,8 +1,18 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form, Field, ErrorMessage} from "formik";
+import type { FormikHelpers } from "formik";
 import * as Yup from "yup";
 
+type FormValues = {
+  fullName: string;
+  email: string;
+  mobile: string;
+  gender: string;
+  password: string;
+  confirmPassword: string;
+};
+
 const RegistrationForm = () => {
-  const initialValues = {
+  const initialValues: FormValues = {
     fullName: "",
     email: "",
     mobile: "",
@@ -31,11 +41,14 @@ const RegistrationForm = () => {
       .required("Password is required"),
 
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password"), null], "Passwords must match")
+      .oneOf([Yup.ref("password")], "Passwords must match")
       .required("Confirm Password is required"),
   });
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = (
+    values: FormValues,
+    { resetForm }: FormikHelpers<FormValues>
+  ) => {
     console.log(values);
     alert("Registration Successful!");
     resetForm();
@@ -44,12 +57,11 @@ const RegistrationForm = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0B0F0C] via-[#111827] to-[#0F172A] flex items-center justify-center px-4 py-10">
       <div className="w-full max-w-xl rounded-3xl border border-emerald-500/20 bg-black/30 backdrop-blur-2xl shadow-[0_0_50px_rgba(16,185,129,0.15)] p-8 md:p-10">
-        
-        <h2 className="text-4xl font-extrabold text-center bg-gradient-to-r from-emerald-300 via-amber-200 to-emerald-400 bg-clip-text text-transparent mb-2">
+        <h2 className="mb-2 bg-gradient-to-r from-emerald-300 via-amber-200 to-emerald-400 bg-clip-text text-center text-4xl font-extrabold text-transparent">
           Create Account
         </h2>
 
-        <p className="text-center text-slate-400 mb-8">
+        <p className="mb-8 text-center text-slate-400">
           Join us by filling in your details below
         </p>
 
@@ -59,10 +71,9 @@ const RegistrationForm = () => {
           onSubmit={handleSubmit}
         >
           <Form className="space-y-5">
-
             {/* Full Name */}
             <div>
-              <label className="block text-emerald-100 mb-2 font-medium">
+              <label className="mb-2 block font-medium text-emerald-100">
                 Full Name
               </label>
 
@@ -70,7 +81,7 @@ const RegistrationForm = () => {
                 type="text"
                 name="fullName"
                 placeholder="Enter your full name"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
               />
 
               <ErrorMessage
@@ -82,7 +93,7 @@ const RegistrationForm = () => {
 
             {/* Email */}
             <div>
-              <label className="block text-emerald-100 mb-2 font-medium">
+              <label className="mb-2 block font-medium text-emerald-100">
                 Email Address
               </label>
 
@@ -90,7 +101,7 @@ const RegistrationForm = () => {
                 type="email"
                 name="email"
                 placeholder="example@gmail.com"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
               />
 
               <ErrorMessage
@@ -102,7 +113,7 @@ const RegistrationForm = () => {
 
             {/* Mobile */}
             <div>
-              <label className="block text-emerald-100 mb-2 font-medium">
+              <label className="mb-2 block font-medium text-emerald-100">
                 Mobile Number
               </label>
 
@@ -110,7 +121,7 @@ const RegistrationForm = () => {
                 type="text"
                 name="mobile"
                 placeholder="9876543210"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
               />
 
               <ErrorMessage
@@ -122,28 +133,28 @@ const RegistrationForm = () => {
 
             {/* Gender */}
             <div>
-              <label className="block text-emerald-100 mb-2 font-medium">
+              <label className="mb-2 block font-medium text-emerald-100">
                 Gender
               </label>
 
               <Field
                 as="select"
                 name="gender"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
               >
-                <option className="text-black" value="">
+                <option value="" className="text-black">
                   Select Gender
                 </option>
 
-                <option className="text-black" value="Male">
+                <option value="Male" className="text-black">
                   Male
                 </option>
 
-                <option className="text-black" value="Female">
+                <option value="Female" className="text-black">
                   Female
                 </option>
 
-                <option className="text-black" value="Other">
+                <option value="Other" className="text-black">
                   Other
                 </option>
               </Field>
@@ -157,7 +168,7 @@ const RegistrationForm = () => {
 
             {/* Password */}
             <div>
-              <label className="block text-emerald-100 mb-2 font-medium">
+              <label className="mb-2 block font-medium text-emerald-100">
                 Password
               </label>
 
@@ -165,7 +176,7 @@ const RegistrationForm = () => {
                 type="password"
                 name="password"
                 placeholder="Enter password"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
               />
 
               <ErrorMessage
@@ -177,7 +188,7 @@ const RegistrationForm = () => {
 
             {/* Confirm Password */}
             <div>
-              <label className="block text-emerald-100 mb-2 font-medium">
+              <label className="mb-2 block font-medium text-emerald-100">
                 Confirm Password
               </label>
 
@@ -185,7 +196,7 @@ const RegistrationForm = () => {
                 type="password"
                 name="confirmPassword"
                 placeholder="Confirm your password"
-                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:outline-none focus:ring-4 focus:ring-emerald-500/20"
               />
 
               <ErrorMessage
@@ -202,7 +213,6 @@ const RegistrationForm = () => {
             >
               Register
             </button>
-
           </Form>
         </Formik>
       </div>
