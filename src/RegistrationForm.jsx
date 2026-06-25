@@ -38,18 +38,18 @@ const RegistrationForm = () => {
   const handleSubmit = (values, { resetForm }) => {
     console.log(values);
     alert("Registration Successful!");
-
     resetForm();
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-indigo-950 to-blue-950 flex items-center justify-center px-4 py-10">
-      <div className="w-full max-w-xl rounded-3xl border border-white/20 bg-white/10 backdrop-blur-2xl shadow-2xl p-8 md:p-10">
-        <h2 className="text-4xl font-extrabold text-center text-white mb-2">
+    <div className="min-h-screen bg-gradient-to-br from-[#0B0F0C] via-[#111827] to-[#0F172A] flex items-center justify-center px-4 py-10">
+      <div className="w-full max-w-xl rounded-3xl border border-emerald-500/20 bg-black/30 backdrop-blur-2xl shadow-[0_0_50px_rgba(16,185,129,0.15)] p-8 md:p-10">
+        
+        <h2 className="text-4xl font-extrabold text-center bg-gradient-to-r from-emerald-300 via-amber-200 to-emerald-400 bg-clip-text text-transparent mb-2">
           Create Account
         </h2>
 
-        <p className="text-center text-gray-300 mb-8">
+        <p className="text-center text-slate-400 mb-8">
           Join us by filling in your details below
         </p>
 
@@ -59,9 +59,10 @@ const RegistrationForm = () => {
           onSubmit={handleSubmit}
         >
           <Form className="space-y-5">
+
             {/* Full Name */}
             <div>
-              <label className="block text-gray-200 mb-2 font-medium">
+              <label className="block text-emerald-100 mb-2 font-medium">
                 Full Name
               </label>
 
@@ -69,19 +70,19 @@ const RegistrationForm = () => {
                 type="text"
                 name="fullName"
                 placeholder="Enter your full name"
-                className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-md transition-all duration-300 focus:border-cyan-400 focus:ring-4 focus:ring-cyan-400/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
               />
 
               <ErrorMessage
                 name="fullName"
                 component="div"
-                className="mt-1 text-sm text-red-300"
+                className="mt-1 text-sm text-rose-400"
               />
             </div>
 
             {/* Email */}
             <div>
-              <label className="block text-gray-200 mb-2 font-medium">
+              <label className="block text-emerald-100 mb-2 font-medium">
                 Email Address
               </label>
 
@@ -89,19 +90,19 @@ const RegistrationForm = () => {
                 type="email"
                 name="email"
                 placeholder="example@gmail.com"
-                className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-md transition-all duration-300 focus:border-cyan-400 focus:ring-4 focus:ring-cyan-400/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
               />
 
               <ErrorMessage
                 name="email"
                 component="div"
-                className="mt-1 text-sm text-red-300"
+                className="mt-1 text-sm text-rose-400"
               />
             </div>
 
             {/* Mobile */}
             <div>
-              <label className="block text-gray-200 mb-2 font-medium">
+              <label className="block text-emerald-100 mb-2 font-medium">
                 Mobile Number
               </label>
 
@@ -109,26 +110,26 @@ const RegistrationForm = () => {
                 type="text"
                 name="mobile"
                 placeholder="9876543210"
-                className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-md transition-all duration-300 focus:border-cyan-400 focus:ring-4 focus:ring-cyan-400/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
               />
 
               <ErrorMessage
                 name="mobile"
                 component="div"
-                className="mt-1 text-sm text-red-300"
+                className="mt-1 text-sm text-rose-400"
               />
             </div>
 
             {/* Gender */}
             <div>
-              <label className="block text-gray-200 mb-2 font-medium">
+              <label className="block text-emerald-100 mb-2 font-medium">
                 Gender
               </label>
 
               <Field
                 as="select"
                 name="gender"
-                className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white backdrop-blur-md transition-all duration-300 focus:border-cyan-400 focus:ring-4 focus:ring-cyan-400/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
               >
                 <option className="text-black" value="">
                   Select Gender
@@ -150,13 +151,13 @@ const RegistrationForm = () => {
               <ErrorMessage
                 name="gender"
                 component="div"
-                className="mt-1 text-sm text-red-300"
+                className="mt-1 text-sm text-rose-400"
               />
             </div>
 
             {/* Password */}
             <div>
-              <label className="block text-gray-200 mb-2 font-medium">
+              <label className="block text-emerald-100 mb-2 font-medium">
                 Password
               </label>
 
@@ -164,19 +165,19 @@ const RegistrationForm = () => {
                 type="password"
                 name="password"
                 placeholder="Enter password"
-                className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-md transition-all duration-300 focus:border-cyan-400 focus:ring-4 focus:ring-cyan-400/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
               />
 
               <ErrorMessage
                 name="password"
                 component="div"
-                className="mt-1 text-sm text-red-300"
+                className="mt-1 text-sm text-rose-400"
               />
             </div>
 
             {/* Confirm Password */}
             <div>
-              <label className="block text-gray-200 mb-2 font-medium">
+              <label className="block text-emerald-100 mb-2 font-medium">
                 Confirm Password
               </label>
 
@@ -184,23 +185,24 @@ const RegistrationForm = () => {
                 type="password"
                 name="confirmPassword"
                 placeholder="Confirm your password"
-                className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-gray-400 backdrop-blur-md transition-all duration-300 focus:border-cyan-400 focus:ring-4 focus:ring-cyan-400/20 focus:outline-none"
+                className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-slate-500 backdrop-blur-md transition-all duration-300 hover:border-emerald-400/30 focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/20 focus:outline-none"
               />
 
               <ErrorMessage
                 name="confirmPassword"
                 component="div"
-                className="mt-1 text-sm text-red-300"
+                className="mt-1 text-sm text-rose-400"
               />
             </div>
 
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 py-3 font-semibold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-cyan-500/40 active:scale-95"
+              className="w-full rounded-xl bg-gradient-to-r from-emerald-600 via-emerald-500 to-amber-400 py-3 font-bold text-black shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(16,185,129,0.4)] active:scale-95"
             >
               Register
             </button>
+
           </Form>
         </Formik>
       </div>
